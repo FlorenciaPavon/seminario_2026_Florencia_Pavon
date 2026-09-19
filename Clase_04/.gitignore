@@ -1,0 +1,29 @@
+```gitignore
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+.gradio/
+
+# Caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de distribución
+build/
+dist/
+*.egg-info/
+
+# Archivos de configuración de IDE
+.vscode/
+.idea/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Variables de entorno
+.env
+```
