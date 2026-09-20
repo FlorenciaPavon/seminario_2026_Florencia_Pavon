@@ -7,6 +7,9 @@ En esta actividad se desarrollan dos aplicaciones web mínimas y se realizan sus
 El objetivo es comprobar que las aplicaciones pueden ejecutarse de manera independiente del entorno local y accederse mediante un enlace público.
 
 ## Aplicaciones
+enlace de render https://seminario-2026-florencia-pavon.onrender.com/
+
+enlace de streamlit  https://seminario2026florenciapavon-bmf3ac8us6h8fgd8bap56q.streamlit.app/
 
 ### 1. Aplicación con Streamlit
 
