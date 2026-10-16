@@ -67,8 +67,9 @@ def inicio():
                 sentimiento = prediccion.label
                 confianza = prediccion.score
 
-            except Exception:
-                error = "No se pudo obtener una respuesta del modelo. Intentá nuevamente."
+            except Exception as e:
+                print(f"Error al consultar Hugging Face: {e}")
+                error = f"Error al consultar Hugging Face: {e}"
 
     return render_template_string(
         HTML,
