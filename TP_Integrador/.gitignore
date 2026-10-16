@@ -31,3 +31,15 @@ dist/
 # Archivos del sistema operativo
 .DS_Store
 Thumbs.db
+
+# Secretos adicionales
+.env.local
+*.pem
+*.key
+
+# Archivos generados por herramientas de Python
+.coverage
+htmlcov/
+
+# Archivos del sistema
+.DS_Store
