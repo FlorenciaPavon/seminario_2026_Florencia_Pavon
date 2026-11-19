@@ -51,10 +51,10 @@ def predecir(datos: DatosPaciente):
     # Crear un DataFrame
     df = pd.DataFrame([datos_paciente])
 
-    # Depuración temporal
+    ''' Depuración temporal
     print("Columnas recibidas:", df.columns.tolist())
     print("Shape:", df.shape)
-    print(df)
+    print(df)'''
 
     # Obtener la predicción
     prediccion = modelo.predict(df)[0]
