@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f7f6">
+    <meta name="description" content="Herramienta educativa para explorar una predicción de riesgo cardiovascular.">
+    <title>Evaluación cardiovascular | Proyecto académico</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Evaluación cardiovascular, inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 27s-11-6.7-11-14a6 6 0 0 1 11-3.2A6 6 0 0 1 27 13c0 7.3-11 14-11 14Z" />
+            <path d="M7 16h5l2-4 3.5 8 2-4H25" />
+          </svg>
+        </span>
+        <span>Salud <strong>en datos</strong></span>
+      </a>
+      <span class="header-note"><span class="status-dot"></span> Proyecto académico</span>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div class="eyebrow"><span class="eyebrow-line"></span> MODELO FRAMINGHAM</div>
+        <h1 id="page-title">Evaluación de factores <span>cardiovasculares</span></h1>
+        <p>Completá los datos para obtener una predicción del modelo. Te va a llevar solo unos minutos.</p>
+        <div class="privacy-note">
+          <svg aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="M10 2.5 3.5 5v4.3c0 4 2.8 6.8 6.5 8.2 3.7-1.4 6.5-4.2 6.5-8.2V5L10 2.5Z" /><path d="m7.5 9.8 1.7 1.7 3.5-3.6" /></svg>
+          <span>La información se utiliza únicamente para esta consulta.</span>
+        </div>
+      </section>
+
+      <div class="content-layout">
+        <form id="prediction-form" novalidate>
+          <section class="form-card" aria-labelledby="general-heading">
+            <div class="section-heading">
+              <span class="section-number">01</span>
+              <div>
+                <h2 id="general-heading">Datos generales</h2>
+                <p>Información básica de la persona</p>
+              </div>
+            </div>
+            <div class="field-grid">
+              <fieldset class="field">
+                <legend>Sexo</legend>
+                <div class="choice-group">
+                  <label class="choice"><input type="radio" name="male" value="0" required><span>Femenino</span></label>
+                  <label class="choice"><input type="radio" name="male" value="1"><span>Masculino</span></label>
+                </div>
+              </fieldset>
+              <div class="field">
+                <label for="age">Edad <span class="unit">(años)</span></label>
+                <input id="age" name="age" type="number" min="32" max="70" step="1" placeholder="Ej. 45" required>
+                <small class="field-hint">Entre 32 y 70 años</small>
+              </div>
+              <div class="field">
+                <label for="education">Nivel educativo</label>
+                <select id="education" name="education" required>
+                  <option value="" disabled selected>Seleccioná una categoría</option>
+                  <option value="1">Primario</option>
+                  <option value="2">Secundario</option>
+                  <option value="3">Terciario</option>
+                  <option value="4">Universitario</option>
+                </select>
+                <small class="field-hint">Elegí el nivel educativo correspondiente</small>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-card" aria-labelledby="habits-heading">
+            <div class="section-heading">
+              <span class="section-number">02</span>
+              <div>
+                <h2 id="habits-heading">Hábitos</h2>
+                <p>Hábitos relacionados con el estilo de vida</p>
+              </div>
+            </div>
+            <div class="field-grid">
+              <fieldset class="field">
+                <legend>¿Fuma actualmente?</legend>
+                <div class="choice-group">
+                  <label class="choice"><input type="radio" name="currentSmoker" value="1" required><span>Sí</span></label>
+                  <label class="choice"><input type="radio" name="currentSmoker" value="0"><span>No</span></label>
+                </div>
+              </fieldset>
+              <div class="field">
+                <label for="cigsPerDay">Cigarrillos por día</label>
+                <input id="cigsPerDay" name="cigsPerDay" type="number" min="0" max="70" step="1" placeholder="Ej. 5" required disabled>
+                <small class="field-hint" id="cigs-hint">Indicá 0 si no fuma.</small>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-card" aria-labelledby="history-heading">
+            <div class="section-heading">
+              <span class="section-number">03</span>
+              <div>
+                <h2 id="history-heading">Antecedentes y condiciones</h2>
+                <p>Respondé según los antecedentes conocidos</p>
+              </div>
+            </div>
+            <div class="field-grid field-grid-two">
+              <fieldset class="field">
+                <legend>¿Toma medicación para la presión arterial?</legend>
+                <div class="choice-group">
+                  <label class="choice"><input type="radio" name="BPMeds" value="1" required><span>Sí</span></label>
+                  <label class="choice"><input type="radio" name="BPMeds" value="0"><span>No</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="field">
+                <legend>¿Tuvo un ACV?</legend>
+                <div class="choice-group">
+                  <label class="choice"><input type="radio" name="prevalentStroke" value="1" required><span>Sí</span></label>
+                  <label class="choice"><input type="radio" name="prevalentStroke" value="0"><span>No</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="field">
+                <legend>¿Tiene hipertensión?</legend>
+                <div class="choice-group">
+                  <label class="choice"><input type="radio" name="prevalentHyp" value="1" required><span>Sí</span></label>
+                  <label class="choice"><input type="radio" name="prevalentHyp" value="0"><span>No</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="field">
+                <legend>¿Tiene diabetes?</legend>
+                <div class="choice-group">
+                  <label class="choice"><input type="radio" name="diabetes" value="1" required><span>Sí</span></label>
+                  <label class="choice"><input type="radio" name="diabetes" value="0"><span>No</span></label>
+                </div>
+              </fieldset>
+            </div>
+          </section>
+
+          <section class="form-card" aria-labelledby="measurements-heading">
+            <div class="section-heading">
+              <span class="section-number">04</span>
+              <div>
+                <h2 id="measurements-heading">Mediciones</h2>
+                <p>Usá valores recientes, si los tenés disponibles</p>
+              </div>
+            </div>
+            <div class="field-grid">
+              <div class="field">
+                <label for="totChol">Colesterol total <span class="unit">(mg/dL)</span></label>
+                <input id="totChol" name="totChol" type="number" min="107" max="696" step="any" placeholder="Ej. 185" required>
+              </div>
+              <div class="field">
+                <label for="sysBP">Presión sistólica <span class="unit">(mmHg)</span></label>
+                <input id="sysBP" name="sysBP" type="number" min="83" max="295" step="any" placeholder="Ej. 120" required>
+              </div>
+              <div class="field">
+                <label for="diaBP">Presión diastólica <span class="unit">(mmHg)</span></label>
+                <input id="diaBP" name="diaBP" type="number" min="48" max="142" step="any" placeholder="Ej. 80" required>
+              </div>
+              <div class="field">
+                <label for="BMI">Índice de masa corporal <span class="unit">(IMC)</span></label>
+                <input id="BMI" name="BMI" type="number" min="15.5" max="57" step="any" placeholder="Ej. 24.5" required>
+              </div>
+              <div class="field">
+                <label for="heartRate">Frecuencia cardíaca <span class="unit">(latidos/min)</span></label>
+                <input id="heartRate" name="heartRate" type="number" min="44" max="143" step="1" placeholder="Ej. 72" required>
+              </div>
+              <div class="field">
+                <label for="glucose">Glucosa <span class="unit">(mg/dL)</span></label>
+                <input id="glucose" name="glucose" type="number" min="40" max="394" step="any" placeholder="Ej. 90" required>
+              </div>
+            </div>
+            <p class="range-note">Los rangos indicados corresponden a los valores observados en los datos de entrenamiento.</p>
+          </section>
+
+          <div class="form-actions">
+            <p>Revisá que los datos estén completos antes de continuar.</p>
+            <button id="submit-button" type="submit">
+              <span class="button-label">Obtener predicción</span>
+              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m-5-5 5 5-5 5" /></svg>
+            </button>
+          </div>
+        </form>
+
+        <aside class="result-card" id="result-card" aria-labelledby="result-heading" aria-live="polite">
+          <div class="result-icon" aria-hidden="true">
+            <svg viewBox="0 0 28 28" fill="none"><path d="M14 24s-9.5-5.8-9.5-12.1a5.2 5.2 0 0 1 9.5-2.8 5.2 5.2 0 0 1 9.5 2.8C23.5 18.2 14 24 14 24Z" /><path d="M7.5 14h4l1.5-3 2.5 6 1.5-3h3.5" /></svg>
+          </div>
+          <span class="result-label">TU RESULTADO</span>
+          <h2 id="result-heading">Resultado de la predicción</h2>
+          <p id="result-message" class="result-message">Completá el formulario y enviá tus datos para ver la respuesta de la API.</p>
+          <div id="result-details" class="result-details" hidden>
+            <div class="probability-row">
+              <span>Probabilidad estimada</span>
+              <strong id="probability-value">—</strong>
+            </div>
+            <div class="progress-track" role="progressbar" aria-label="Probabilidad estimada" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <span id="probability-bar"></span>
+            </div>
+            <p class="result-disclaimer">Es una estimación del modelo y no representa un diagnóstico.</p>
+          </div>
+          <div class="result-separator"></div>
+          <p class="medical-disclaimer">
+            <svg aria-hidden="true" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" /><path d="M10 9v4m0-7h.01" /></svg>
+            Herramienta educativa. No reemplaza una evaluación ni un diagnóstico médico.
+          </p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>Proyecto académico · Modelo de predicción cardiovascular</span>
+      <span>Los resultados deben interpretarse con fines educativos.</span>
+    </footer>
+  </body>
+</html>

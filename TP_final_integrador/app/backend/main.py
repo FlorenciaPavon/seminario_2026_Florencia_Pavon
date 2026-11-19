@@ -1,5 +1,6 @@
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 import joblib
 from pathlib import Path
@@ -11,6 +12,18 @@ app = FastAPI(
     title="Framingham - Predicción de riesgo cardiovascular",
     description="API de predicción de riesgo de enfermedad coronaria a 10 años.",
     version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5500",
+        "http://127.0.0.1:5500",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type"],
 )
 
 # Cargar el modelo entrenado
