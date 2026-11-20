@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000/predecir";
+const API_URL = "https://framingham-api-h0v3.onrender.com/predecir";
 
 const form = document.querySelector("#prediction-form");
 const smokerOptions = document.querySelectorAll('input[name="currentSmoker"]');

@@ -21,9 +21,10 @@ app.add_middleware(
         "http://127.0.0.1:5500",
         "http://localhost:5173",
         "http://127.0.0.1:5173",
+        "https://seminario2026florenciapavon-fronten.vercel.app",
     ],
     allow_methods=["GET", "POST"],
-    allow_headers=["Content-Type"],
+    allow_headers=["Content-Type"],    
 )
 
 # Cargar el modelo entrenado
