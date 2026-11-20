@@ -41,8 +41,12 @@ def inicio():
         "modelo": "Regresión Logística - Framingham"
     }
 
+@app.get("/health")
+def health():
+    return {"estado": "ok"}
 
-@app.post("/predict")
+
+@app.post("/predecir")
 def predecir(datos: DatosPaciente):
 
     # Convertir los datos recibidos en un diccionario
